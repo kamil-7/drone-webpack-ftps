@@ -1,0 +1,1 @@
+# Drone webpack-ftp plugin

@@ -1,0 +1,39 @@
+version: '2'
+
+pipeline:
+  telegram:
+    image: appleboy/drone-telegram
+    token: ${TELEGRAM_TOKEN}
+    to: ${TELEGRAM_TO}
+    message: |
+      Started build:
+      drone-webpack-ftp 0.1
+
+  docker:
+    image: plugins/docker
+    context: .
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    repo: kmoczydlowski/drone-webpack-ftp
+    tag: 0.1
+    dockerfile: Dockerfile
+
+  telegram:
+    image: appleboy/drone-telegram
+    token: ${TELEGRAM_TOKEN}
+    to: ${TELEGRAM_TO}
+    message: |
+      Built:
+      drone-webpack-ftp 0.1
+    when:
+      status: success
+
+  telegram:
+    image: appleboy/drone-telegram
+    token: ${TELEGRAM_TOKEN}
+    to: ${TELEGRAM_TO}
+    message: |
+      Failed to build:
+      drone-webpack-ftp 0.1
+    when:
+      status: failure
