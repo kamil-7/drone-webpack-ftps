@@ -7,7 +7,7 @@ pipeline:
     to: ${TELEGRAM_TO}
     message: |
       Started build:
-      drone-webpack-ftp 0.1
+      drone-webpack-ftps 0.2
 
   docker:
     image: plugins/docker
@@ -15,7 +15,7 @@ pipeline:
     username: ${DOCKER_USERNAME}
     password: ${DOCKER_PASSWORD}
     repo: kmoczydlowski/drone-webpack-ftps
-    tag: 0.1
+    tag: 0.2
     dockerfile: Dockerfile
 
   telegram:
@@ -24,7 +24,7 @@ pipeline:
     to: ${TELEGRAM_TO}
     message: |
       Built:
-      drone-webpack-ftp 0.1
+      drone-webpack-ftps 0.2
     when:
       status: success
 
@@ -34,6 +34,6 @@ pipeline:
     to: ${TELEGRAM_TO}
     message: |
       Failed to build:
-      drone-webpack-ftp 0.1
+      drone-webpack-ftps 0.2
     when:
       status: failure
