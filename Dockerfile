@@ -39,6 +39,6 @@ RUN npm install webpack -g
 
 WORKDIR /usr/src/app/
 
-ADD drone_webpack_ftp.py /usr/bin/
+ADD drone_webpack_ftps.py /usr/bin/
 
 ENTRYPOINT ["python3", "/usr/bin/drone_webpack_ftp.py"]
