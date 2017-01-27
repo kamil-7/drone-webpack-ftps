@@ -14,7 +14,7 @@ pipeline:
     context: .
     username: ${DOCKER_USERNAME}
     password: ${DOCKER_PASSWORD}
-    repo: kmoczydlowski/drone-webpack-ftp
+    repo: kmoczydlowski/drone-webpack-ftps
     tag: 0.1
     dockerfile: Dockerfile
 
